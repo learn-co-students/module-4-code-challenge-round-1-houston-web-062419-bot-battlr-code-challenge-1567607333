@@ -2,6 +2,8 @@ import React from "react";
 import BotCollection from "./BotCollection"
 import YourBotArmy from "./YourBotArmy"
 import BotSpecs from "../components/BotSpecs"
+import Sort from "../components/Sort"
+
 
 
 class BotsPage extends React.Component {
@@ -88,11 +90,17 @@ class BotsPage extends React.Component {
     })
   }
 
+  sortBy = () => {
+    let arr = this.state.bots.sort((a,b) => a.name > b.name ? 1 : -1)
+    console.log(arr)
+  }
+
 
   render() {
     return (
       <div>
          <YourBotArmy enlist={this.state.enlist} delist={this.delist}/>
+         <Sort sort={this.sortBy}/>
          {(this.state.toggle == false) ?<BotCollection bots={this.state.bots} enlist={this.enlist} replaceCollection={this.replaceCollection}/> : <BotSpecs bot={this.state.bot} enlist={this.enlist} goBack={this.goBack}/>}
       </div>
     );

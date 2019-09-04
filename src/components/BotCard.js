@@ -5,7 +5,7 @@ const BotCard = props => {
 
   let botType;
 
-  switch (bot.bot_class) {
+  switch (bot.allBot.bot_class) {
     case "Assault":
       botType = <i className="icon military" />;
       break;
@@ -23,34 +23,34 @@ const BotCard = props => {
     <div className="ui column">
       <div
         className="ui card"
-        key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        key={bot.allBot.id}
+        onClick={() => props.showBot}
       >
         <div className="image">
-          <img alt="oh no!" src={bot.avatar_url} />
+          <img alt="oh no!" src={bot.allBot.avatar_url} />
         </div>
         <div className="content">
           <div className="header">
-            {bot.name} {botType}
+            {bot.allBot.name} {botType}
           </div>
 
           <div className="meta text-wrap">
-            <small>{bot.catchphrase}</small>
+            <small>{bot.allBot.catchphrase}</small>
           </div>
         </div>
         <div className="extra content">
           <span>
             <i className="icon heartbeat" />
-            {bot.health}
+            {bot.allBot.health}
           </span>
 
           <span>
             <i className="icon lightning" />
-            {bot.damage}
+            {bot.allBot.damage}
           </span>
           <span>
             <i className="icon shield" />
-            {bot.armor}
+            {bot.allBot.armor}
           </span>
         </div>
       </div>

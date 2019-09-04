@@ -46,7 +46,7 @@ class BotsPage extends React.Component {
   	console.log(this.state.bots)
   	if (this.state.sorted){
   		console.log(this.state.bots)
-  		this.setState({showbots:this.state.bots})
+  		this.setState({showbots:this.state.showbots.sort((a, b) => (a.id > b.id)? 1: -1)})
   	}else{
   		this.setState({showbots: this.state.showbots.sort((a, b) => (a.name > b.name)? 1: -1)})
   	}

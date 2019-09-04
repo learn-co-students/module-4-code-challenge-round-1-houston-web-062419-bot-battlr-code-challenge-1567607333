@@ -10,8 +10,10 @@ class BotCollection extends React.Component {
   	return (
   	  <div className="ui four column grid">
         <button className="ui button fluid"  onClick={() => this.props.sortCollection()}>
-                  {this.props.sorted?"Sorted!":"Sort by Name"}
+                  {this.props.sorted?"Sort by Id!":"Sort by Name!"}
         </button>
+
+
     		<div className="row">
     		  {this.props.bots.map(bot => bot.spec? <BotSpecs bot = {bot} handleGoBack = {this.props.handleGoBack} 
                                                                         handleEnlist={this.props.handleEnlist}/>:

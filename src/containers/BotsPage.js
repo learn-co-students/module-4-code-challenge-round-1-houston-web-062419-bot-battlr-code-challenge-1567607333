@@ -1,12 +1,32 @@
 import React from "react";
-
+import BotCollection from './BotCollection'
+import YourBotArmy from "./YourBotArmy";
 class BotsPage extends React.Component {
-  //start here with your code for step one
 
+
+  constructor(){
+    super()
+
+    this.state={
+      myBots: [],
+      bots: []
+    }
+  }
+  componentDidMount(){
+    fetch('https://bot-battler-api.herokuapp.com/api/v1/bots')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        myBots: data,
+        bots: data
+      })
+    })
+  }
   render() {
     return (
       <div>
-        {/* put your components here */}
+        <BotCollection bots={this.state.bots} />
+        <YourBotArmy myBots={this.state.myBots}/>
       </div>
     );
   }
